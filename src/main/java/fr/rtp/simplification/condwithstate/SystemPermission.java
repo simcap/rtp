@@ -1,5 +1,12 @@
 package fr.rtp.simplification.condwithstate;
 
+/**
+ * Chapter 7 - Simplification
+ * Replace state-altering conditionals with state 
+ * 
+ * http://www.industriallogic.com/xp/refactoring/alteringConditionalsWithState.html
+ * http://www.informit.com/articles/article.aspx?p=1398607&seqNum=4
+ */
 public class SystemPermission {
     
     private SystemProfile profile;
