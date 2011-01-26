@@ -1,8 +1,8 @@
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>fr</groupId>
-  <artifactId>rtp</artifactId>
-  <version>1</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fr</groupId>
+    <artifactId>rtp</artifactId>
+    <version>1</version>
 
   <dependencies>
     <dependency>
@@ -16,4 +16,6 @@
       <version>1.8.5</version>
     </dependency>
   </dependencies>
+
 </project>
+
