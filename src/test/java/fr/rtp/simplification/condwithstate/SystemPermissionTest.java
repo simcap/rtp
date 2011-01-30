@@ -11,6 +11,7 @@ public class SystemPermissionTest {
     private SystemPermission permission;
     
     
+    @SuppressWarnings("static-access")
     @Test
     public void grantedBy() throws Exception {
         SystemAdmin systemAdmin = new SystemAdmin();
@@ -23,6 +24,7 @@ public class SystemPermissionTest {
         assertEquals("granted", true, permission.isGranted());
     }
 
+    @SuppressWarnings("static-access")
     @Test
     public void deniedBy() throws Exception {
         SystemAdmin systemAdmin = new SystemAdmin();
