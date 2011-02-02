@@ -5,12 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class SystemPermissionTest {
 
     private SystemPermission permission;
-    
-    
+
     @SuppressWarnings("static-access")
     @Test
     public void grantedBy() throws Exception {
@@ -19,7 +17,7 @@ public class SystemPermissionTest {
         assertEquals("requested", permission.REQUESTED, permission.state());
         assertEquals("not granted", false, permission.isGranted());
         permission.claimedBy(systemAdmin);
-        permission.grantedBy(systemAdmin);        
+        permission.grantedBy(systemAdmin);
         assertEquals("granted", permission.GRANTED, permission.state());
         assertEquals("granted", true, permission.isGranted());
     }
@@ -32,11 +30,11 @@ public class SystemPermissionTest {
         assertEquals("requested", permission.REQUESTED, permission.state());
         assertEquals("not granted", false, permission.isGranted());
         permission.claimedBy(systemAdmin);
-        permission.deniedBy(systemAdmin);        
+        permission.deniedBy(systemAdmin);
         assertEquals("denied", permission.DENIED, permission.state());
         assertEquals("denied", false, permission.isGranted());
     }
-    
+
     @Before
     public void initBeforeTest() throws Exception {
         SystemUser user = new SystemUser();

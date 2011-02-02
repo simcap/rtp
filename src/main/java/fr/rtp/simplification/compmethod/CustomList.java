@@ -1,9 +1,8 @@
 package fr.rtp.simplification.compmethod;
 
-
 /**
  * Chapter 7 - Simplification
- * Compose Method 
+ * Compose Method
  * 
  * Refactoring - Simplify the method add.
  */
@@ -19,10 +18,10 @@ public class CustomList {
         this.readOnly = true;
     }
 
-    public void add(Object element){
-        if(!readOnly){
+    public void add(Object element) {
+        if (!readOnly) {
             int newSize = size + 1;
-            if(newSize > elements.length) {
+            if (newSize > elements.length) {
                 Object[] newElements = new Object[elements.length + 10];
                 for (int i = 0; i < size; i++) {
                     newElements[i] = elements[i];
@@ -44,5 +43,5 @@ public class CustomList {
     public void setReadOnly(boolean readOnly) {
         this.readOnly = readOnly;
     }
-    
+
 }
