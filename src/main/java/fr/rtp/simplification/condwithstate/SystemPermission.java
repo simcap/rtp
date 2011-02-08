@@ -2,81 +2,81 @@ package fr.rtp.simplification.condwithstate;
 
 /**
  * Chapter 7 - Simplification
- * Replace state-altering conditionals with state 
+ * Replace state-altering conditionals with state
  * 
- * http://www.industriallogic.com/xp/refactoring/alteringConditionalsWithState.html
+ * http://www.industriallogic.com/xp/refactoring/alteringConditionalsWithState.
+ * html
  * http://www.informit.com/articles/article.aspx?p=1398607&seqNum=4
  */
 public class SystemPermission {
-    
-    private SystemProfile profile;
-    private SystemUser requestor;
-    private SystemAdmin admin;
-    private boolean isGranted;
-    private String state;
-    
-    public final static String REQUESTED = "REQUESTED";
-    public final static String CLAIMED = "REQUESTED";
-    public final static String GRANTED = "GRANTED";
-    public final static String DENIED = "DENIED";
-    
-    public SystemPermission(SystemUser requestor, SystemProfile profile) {
-        this.requestor = requestor;
-        this.profile = profile;
-        state = REQUESTED;
-        isGranted = false;
-        notifyAdminOfPermissionRequest();
-    }
 
-    public void claimedBy(SystemAdmin admin){
-        if(!state.equals(REQUESTED)){
-            return;
-        }
-        willBeHandledBy(admin);
-        state = CLAIMED;
-    }
+  private SystemProfile profile;
+  private SystemUser requestor;
+  private SystemAdmin admin;
+  private boolean isGranted;
+  private String state;
 
-    public void deniedBy(SystemAdmin admin){
-        if(!state.equals(CLAIMED)){
-            return;
-        }
-        if(!admin.equals(this.admin)){
-            return;
-        }
-        isGranted = false;
-        state = DENIED;
-        notifyUserOfPermissionRequestResult();
-    }
+  public final static String REQUESTED = "REQUESTED";
+  public final static String CLAIMED = "REQUESTED";
+  public final static String GRANTED = "GRANTED";
+  public final static String DENIED = "DENIED";
 
-    public void grantedBy(SystemAdmin admin){
-        if(!state.equals(CLAIMED)){
-            return;
-        }
-        if(!admin.equals(this.admin)){
-            return;
-        }
-        state = GRANTED;
-        isGranted = true;
-        notifyUserOfPermissionRequestResult();
-    }
+  public SystemPermission(SystemUser requestor, SystemProfile profile) {
+    this.requestor = requestor;
+    this.profile = profile;
+    state = REQUESTED;
+    isGranted = false;
+    notifyAdminOfPermissionRequest();
+  }
 
-    private void willBeHandledBy(SystemAdmin admin) {
-        this.admin = admin;
+  public void claimedBy(SystemAdmin admin) {
+    if (!state.equals(REQUESTED)) {
+      return;
     }
-    
-    private void notifyUserOfPermissionRequestResult() {
-    }
+    willBeHandledBy(admin);
+    state = CLAIMED;
+  }
 
-
-    private void notifyAdminOfPermissionRequest() {
+  public void deniedBy(SystemAdmin admin) {
+    if (!state.equals(CLAIMED)) {
+      return;
     }
-
-    public String state() {
-        return state;
+    if (!admin.equals(this.admin)) {
+      return;
     }
+    isGranted = false;
+    state = DENIED;
+    notifyUserOfPermissionRequestResult();
+  }
 
-    public boolean isGranted() {
-        return isGranted;
+  public void grantedBy(SystemAdmin admin) {
+    if (!state.equals(CLAIMED)) {
+      return;
     }
-    
+    if (!admin.equals(this.admin)) {
+      return;
+    }
+    state = GRANTED;
+    isGranted = true;
+    notifyUserOfPermissionRequestResult();
+  }
+
+  private void willBeHandledBy(SystemAdmin admin) {
+    this.admin = admin;
+  }
+
+  private void notifyUserOfPermissionRequestResult() {
+  }
+
+  private void notifyAdminOfPermissionRequest() {
+  }
+
+  public String state() {
+    return state;
+  }
+
+  public boolean isGranted() {
+    return isGranted;
+  }
+
 }

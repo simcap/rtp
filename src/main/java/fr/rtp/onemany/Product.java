@@ -39,6 +39,4 @@ public class Product {
     return productSize;
   }
 
-
-
 }
