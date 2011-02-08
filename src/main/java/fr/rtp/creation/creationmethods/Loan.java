@@ -9,12 +9,12 @@ import java.util.Date;
  */
 public class Loan {
 
-    private double commitment;
-    private double outstanding;
-    private int riskRating;
-    private Date maturity;
-    private Date expiry;
-    private CapitalStrategy capitalStrategy;
+    double commitment;
+    double outstanding;
+    int riskRating;
+    Date maturity;
+    Date expiry;
+    CapitalStrategy capitalStrategy;
 
     public Loan(double commitment, int riskRating, Date maturity) {
         this(commitment, 0.00, riskRating, maturity, null);
